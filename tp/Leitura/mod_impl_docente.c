@@ -38,6 +38,8 @@ Termina processamento de módulo de implementação.
 Definição de corpo de função.
 */
 
+/* AQUI SOH TEM O NOME DAS FUNÇOES MESMO */
+
 /**
 * Uma função que retorna a lista de docentes.
 * @param *pinicio um ponteiro para o inicio da lista de discentes.
@@ -55,6 +57,7 @@ void getListaDocente(ListaDocente *pinicio) {
 */
 void setListaDocente(ListaDiscente **epinicio, char *arquivo) {
    
+   /*
    FILE *pArquivo;
    
    char separador;
@@ -83,6 +86,8 @@ void setListaDocente(ListaDiscente **epinicio, char *arquivo) {
 		
 		/* descarta informacoes de cabecalho do arquivo de entrada 
        *  ate encontrar a palavra Matricula */
+       
+       /*
 		while (strcmp("Matricula", nome) != 0) {
 				
 			fgets(buffer, sizeof(buffer), pArquivo);
@@ -91,6 +96,8 @@ void setListaDocente(ListaDiscente **epinicio, char *arquivo) {
 		}
 		
 		/* filtra informacoes e constroi lista de discentes */
+		
+		/*
 		while ((fgets(buffer, sizeof(buffer), pArquivo)) != NULL ) {
 			
 			if (sscanf(buffer,"%d%c%d %[^\n]s", &anoMatricula, &separador, &matricula, nome) == 4) {
@@ -127,6 +134,6 @@ void setListaDocente(ListaDiscente **epinicio, char *arquivo) {
 	}
 	
 	
-   
+   */
 }
 

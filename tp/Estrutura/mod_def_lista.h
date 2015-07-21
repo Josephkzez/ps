@@ -62,8 +62,8 @@ typedef struct ListaPEvento {
 /* Para mod_impl_pperiodico.c */
 typedef struct ListaPPeriodico {
 	struct TipoPPeriodico *pevento;
-	struct ListaPPeriodico *proximoPEvento;
-} ListaPEvento;
+	struct ListaPPeriodico *proximoPPeriodico;
+} ListaPPeriodico;
 
 
 

@@ -76,6 +76,6 @@ typedef struct TipoPPeriodico {
    struct Pessoa *realizador;
    struct Pessoa *responsavel;
    struct ListaIntegrante *integrantes;
-} TipoPEvento;
+} TipoPPeriodico;
 
 #endif
