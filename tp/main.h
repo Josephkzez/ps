@@ -5,8 +5,6 @@
 * 	@author José Siqueira.
 *	@since 01/03/15.
 *	@version 1.0.
-
-    HACKED by JeffersonLsZ !!!!!!
 *
 */
 

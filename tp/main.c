@@ -45,7 +45,7 @@ int main() {
 
    printf("\n\n\nLISTA-- PERIODICOS \n");
 
-   getListaPPeriodico(pInicioPPeriodicos);
+   //getListaPPeriodico(pInicioPPeriodicos);
 
    return 0;
 
