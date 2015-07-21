@@ -36,7 +36,7 @@ int main() {
    // PercorreListaDiscente(pInicioDiscentes);
    
    getListaProjeto(pInicioProjetos);
-   //getListaProjeto(&pInicioProjetos); // Imprime lista de discentes do PPGI
+   getListaProjeto(&pInicioProjetos); // Imprime lista de discentes do PPGI
    
    typedef struct Elemento_{
 	   
