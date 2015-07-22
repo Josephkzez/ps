@@ -43,258 +43,197 @@ Definição de corpo de função.
 * @param *pinicio um ponteiro para o inicio da lista de periodicos.
 * @return sem retorno.
 */
-void getListaPPeriodico(ListaPPeriodico *pinicio) {
+void getListaPPeriodico(ListaPPeriodico *pinicio)
+{
 
 
-	char *nome;
+    char *nome;
 
-   ListaPPeriodico *pp1;
-	TipoPPeriodico *pperiodico;
+    ListaPPeriodico *pp1;
+    TipoPPeriodico *pperiodico;
 
-	pp1 = NULL;
+    pp1 = NULL;
+    pperiodico = NULL;
+    nome = "/0";
 
-	pperiodico = NULL;
-	nome = "/0";
+    if (pinicio == NULL)
+    {
+        printf("Lista Vazia!\n");
+        return;
+    } else {
+        printf("HAHAHAAHA");
+        pp1 = pinicio;
+       /* while (pp1 != NULL)
+        {
 
-	if (pinicio == NULL)
-		printf("Lista Vazia!");
+            pperiodico = (TipoPPeriodico *) pp1->pperiodico;
 
-	else {
-		pp1 = pinicio;
+            nome = pperiodico->titulo_periodico;
+            printf("%s\n", nome);
+            pp1 = pp1->proximoPPeriodico;
 
-		while (pp1 != NULL) {
+        } */
 
-			pperiodico = (TipoPPeriodico *) pp1->pperiodico;
-         nome = pperiodico->nome;
-			printf("%s\n", nome);
-			pp1 = pp1->proximoPPeriodico;
-
-		}
-
-	}
+    }
 }
 
 
 
-void setListaPPeriodico(ListaPPeriodico **epinicio, char *arquivo) {
+void setListaPPeriodico(ListaPPeriodico **epinicio, char *arquivo){
+    FILE *pFile;
+    int argc; /* contador de argumentos do buffer de linha */
+    char *args[2]; /* propriedades e valores dos projetos */
+    char *argv; /* valor da propriedade */
+    char buffer[256]; /* buffer de linha temporario */
+    char bufferIntegrante[256]; /* buffer temporario para integrantes dos projetos */
+    char c; /* caracter de leitura de arquivo */
+    char *intv; /* valor de string entre tokens do buffer de integrantes dos projetos */
+    char *propriedadePP[10]; /* valores das propriedades */
+    int i; /* contador de caracteres do buffer de linha */
+    int numeroIntegrante; /* numero do integrante do projeto */
+    int flagIntegrantes; /* sinaliza leitura de secao de integrantes do projeto */
+    ListaPPeriodico *pp1; /* ponteiro auxiliar de lista de projeto */
 
 
-   FILE *pFile;
+    ListaPPeriodico *pp2; /* ponteiro auxiliar de lista de projeto */
 
-   /* contador de argumentos do buffer de linha */
-   int argc;
 
-   /* propriedades e valores dos projetos */
-   char *args[2];
+    //ListaPPeriodico *pi1; /* ponteiro auxiliar de lista de integrante */
+    //ListaPPeriodico *pi2; /* ponteiro auxiliar de lista de integrante */
 
-   /* valor da propriedade */
-   char *argv;
+    /* ponteiro de integrante */
+    TipoPessoa *integrante;
 
-   /* buffer de linha temporario */
-   char buffer[256];
+    /* ponteiro de projeto */
+    TipoPPeriodico *pperiodico;
 
-   /* buffer temporario para integrantes dos projetos */
-   char bufferIntegrante[256];
+    /* abre arquivo */
+    pFile = fopen(arquivo, "r");
 
-   /* caracter de leitura de arquivo */
-   char c;
+    //if (!pFile)
+    //   printf("'%s' not exist\n", arquivo);
 
-   /* valor de string entre tokens do buffer de integrantes dos projetos */
-   char *intv;
+    //c = fgetc(pFile);
 
-   /* valores das propriedades */
-   char *propriedadePP[10];
+    if(ferror(pFile))
+        printf("Arquivo '%s' vazio\n", arquivo);
+    else
+    {
 
-   /* contador de caracteres do buffer de linha */
-   int i;
+        printf("\n");
 
-   /* numero do integrante do projeto */
-   int numeroIntegrante;
+        while ((c = getc(pFile)) != EOF)
+        {
 
-   /* sinaliza leitura de secao de integrantes do projeto */
-   int flagIntegrantes;
+            /* inicializa contadores */
+            argc = 0;
+            i = 0;
 
-   /* ponteiro auxiliar de lista de projeto */
-   ListaPPeriodico *pp1;
+            /* leitura de linha */
+            do
+            {
 
-   /* ponteiro auxiliar de lista de projeto */
-	ListaPPeriodico *pp2;
+                buffer[i] = c;
+                i++;
 
-   /* ponteiro auxiliar de lista de integrante */
-   ListaPPeriodico *pi1;
+            }
+            while (((c = getc(pFile)) != '\n') && (c != EOF));
 
-   /* ponteiro auxiliar de lista de integrante */
-	ListaPPeriodico *pi2;
+            /* adiciona caracter de termino de string */
+            buffer[i] = '\0';
 
-   /* ponteiro de integrante */
-   TipoPessoa *integrante;
+            /* separa buffer de linha */
+            argv = strtok(buffer, "=");
 
-   /* ponteiro de projeto */
-   TipoPPeriodico *pperiodico;
+            /* propriedade = valor */
+            while (argv != NULL)
+            {
+                args[argc] = argv;
+                printf("args[%d]: %s\n", argc, args[argc]);
+                argv = strtok(NULL, "=");
+                argc++;
 
-   /* abre arquivo */
-   pFile = fopen(arquivo, "r");
+            }
 
-   //if (!pFile)
-   //   printf("'%s' not exist\n", arquivo);
+            if (strcmp("TITULO do ARTIGO ", args[0]) == 0)
+            {
 
-   //c = fgetc(pFile);
+                propriedadePP[TITULO] = calloc(strlen(args[1]), sizeof(char));
+                strcpy(propriedadePP[TITULO], args[1]);
+                printf("TITULO : %s\n", propriedadePP[TITULO]);
 
-   if(ferror(pFile))
-      printf("Arquivo '%s' vazio\n", arquivo);
-   else {
+            }
+            else if (strcmp("TITULO do PERIODICO ", args[0]) == 0)
+            {
 
-      printf("\n");
+                propriedadePP[NOME_DA_EDITORA] = calloc(strlen(args[1]), sizeof(char));
+                strcpy(propriedadePP[NOME_DA_EDITORA], args[1]);
+                printf("NOME DA EDITORA: %s\n", propriedadePP[NOME_DA_EDITORA]);
 
-      while ((c = getc(pFile)) != EOF) {
+            }
+            else if (strcmp("PAGINA INICIAL ", args[0]) == 0)
+            {
 
-         /* inicializa contadores */
-         argc = 0;
-         i = 0;
+                propriedadePP[NUMERO_PAGINA_INICIAL] = calloc(strlen(args[1]), sizeof(char));
+                strcpy(propriedadePP[NUMERO_PAGINA_INICIAL], args[1]);
+                printf("NUMERO DA PAGINA INICIAL: %s\n", propriedadePP[NUMERO_PAGINA_INICIAL]);
 
-         /* leitura de linha */
-         do {
+            }
+            else if (strcmp("PAGINA FINAL ", args[0]) == 0)
+            {
 
-            buffer[i] = c;
-            i++;
+                propriedadePP[NUMERO_PAGINA_FINAL] = calloc(strlen(args[1]), sizeof(char));
+                strcpy(propriedadePP[NUMERO_PAGINA_FINAL], args[1]);
+                printf("NUMERO DA PAGINA FINAL: %s\n", propriedadePP[NUMERO_PAGINA_FINAL]);
 
-         } while (((c = getc(pFile)) != '\n') && (c != EOF));
+            }
+            else if (strcmp("VOLUME ", args[0]) == 0)
+            {
 
-         /* adiciona caracter de termino de string */
-         buffer[i] = '\0';
+                propriedadePP[VOLUME] = calloc(strlen(args[1]), sizeof(char));
+                strcpy(propriedadePP[VOLUME], args[1]);
+                printf("VOLUME: %s\n", propriedadePP[VOLUME]);
 
-         /* separa buffer de linha */
-         argv = strtok(buffer, "=");
+            }
+            else if (strcmp("SERIE ", args[0]) == 0)
+            {
 
-         /* propriedade = valor */
-         while (argv != NULL) {
+                propriedadePP[SERIE] = calloc(strlen(args[1]), sizeof(char));
+                strcpy(propriedadePP[SERIE], args[1]);
+                printf("SERIE: %s\n", propriedadePP[SERIE]);
 
-            args[argc] = argv;
-            // printf("args[%d]: %s\n", argc, args[argc]);
-            argv = strtok(NULL, "=");
-            argc++;
+            }
+            else if (strcmp("NATUREZA", args[0]) == 0)
+            {
 
-         }
+                propriedadePP[NATUREZA] = calloc(strlen(args[1]), sizeof(char));
+                strcpy(propriedadePP[NATUREZA], args[1]);
+                printf("NATUREZA: %s\n", propriedadePP[NATUREZA]);
 
-         if (strcmp("TITULO do ARTIGO ", args[0]) == 0) {
+            }
+            else if (strcmp("NOME COMPLETO ", args[0]) == 0)
+            {
 
-            propriedadePP[TITULO] = calloc(strlen(args[1]), sizeof(char));
-            strcpy(propriedadePP[TITULO], args[1]);
-            printf("TITULO : %s\n", propriedadePP[TITULO]);
+                propriedadePP[REALIZADOR] = calloc(strlen(args[1]), sizeof(char));
+                strcpy(propriedadePP[REALIZADOR], args[1]);
+                printf("REALIZADOR: %s\n", propriedadePP[REALIZADOR]);
 
-         } else if (strcmp("TITULO do PERIODICO ", args[0]) == 0) {
+            }
+            else if (strcmp("NOME-PARA-CITACAO ", args[0]) == 0)
+            {
 
-            propriedadePP[NOME_DA_EDITORA] = calloc(strlen(args[1]), sizeof(char));
-            strcpy(propriedadePP[NOME_DA_EDITORA], args[1]);
-            printf("NOME DA EDITORA: %s\n", propriedadePP[NOME_DA_EDITORA]);
+                propriedadePP[NOME_CITACAO] = calloc(strlen(args[1]), sizeof(char));
+                strcpy(propriedadePP[NOME_CITACAO], args[1]);
+                printf("NOME-PARA-CITACAO: %s\n", propriedadePP[NOME_CITACAO]);
 
-         } else if (strcmp("PAGINA INICIAL ", args[0]) == 0) {
+                /* secao integrantes do projeto */
+            }
+            else if (strcmp("AUTORES", buffer) == 0)
+            {
+                printf("AUTORES:\n");
 
-            propriedadePP[NUMERO_PAGINA_INICIAL] = calloc(strlen(args[1]), sizeof(char));
-            strcpy(propriedadePP[NUMERO_PAGINA_INICIAL], args[1]);
-            printf("NUMERO DA PAGINA INICIAL: %s\n", propriedadePP[NUMERO_PAGINA_INICIAL]);
 
-         } else if (strcmp("PAGINA FINAL ", args[0]) == 0) {
-
-            propriedadePP[NUMERO_PAGINA_FINAL] = calloc(strlen(args[1]), sizeof(char));
-            strcpy(propriedadePP[NUMERO_PAGINA_FINAL], args[1]);
-            printf("NUMERO DA PAGINA FINAL: %s\n", propriedadePP[NUMERO_PAGINA_FINAL]);
-
-         } else if (strcmp("VOLUME ", args[0]) == 0) {
-
-            propriedadePP[VOLUME] = calloc(strlen(args[1]), sizeof(char));
-            strcpy(propriedadePP[VOLUME], args[1]);
-            printf("VOLUME: %s\n", propriedadePP[VOLUME]);
-
-         } else if (strcmp("SERIE ", args[0]) == 0) {
-
-            propriedadePP[SERIE] = calloc(strlen(args[1]), sizeof(char));
-            strcpy(propriedadePP[SERIE], args[1]);
-            printf("SERIE: %s\n", propriedadePP[SERIE]);
-
-         } else if (strcmp("NATUREZA", args[0]) == 0) {
-
-            propriedadePP[NATUREZA] = calloc(strlen(args[1]), sizeof(char));
-            strcpy(propriedadePP[NATUREZA], args[1]);
-            printf("NATUREZA: %s\n", propriedadePP[NATUREZA]);
-
-         } else if (strcmp("NOME COMPLETO ", args[0]) == 0) {
-
-            propriedadePP[REALIZADOR] = calloc(strlen(args[1]), sizeof(char));
-            strcpy(propriedadePP[REALIZADOR], args[1]);
-            printf("REALIZADOR: %s\n", propriedadePP[REALIZADOR]);
-
-         } else if (strcmp("NOME-PARA-CITACAO ", args[0]) == 0) {
-
-            propriedadePP[NOME_CITACAO] = calloc(strlen(args[1]), sizeof(char));
-            strcpy(propriedadePP[NOME_CITACAO], args[1]);
-            printf("NOME-PARA-CITACAO: %s\n", propriedadePP[NOME_CITACAO]);
-
-         /* secao integrantes do projeto */
-         } else if (strcmp("INTEGRANTES-DO-PROJETO", buffer) == 0) {
-
-            printf("INTEGRANTES-DO-PROJETO:\n");
-
-            do {
-
-               /* inicializa sinalizador de secao */
-               flagIntegrantes = 0;
-
-               /* inicializa contador */
-               i = 0;
-
-               /* leitura de linha */
-               do {
-
-                  buffer[i] = c;
-                  i++;
-
-               } while (((c = getc(pFile)) != '\n') && (c != EOF));
-
-               buffer[i] = '\0';
-
-               /* examina padrao no buffer de linha */
-               if (sscanf(buffer, "%d%[^\n]s", &numeroIntegrante, &bufferIntegrante) == 2) {
-
-                  // printf("%d\n", numeroIntegrante);
-
-                  /* separa buffer de integrante */
-                  intv = strtok(bufferIntegrante, " ="  );
-
-                  /* sinaliza secao */
-                  if (strcmp("NOME-COMPLETO", intv) == 0)
-                     flagIntegrantes = 1;
-
-                  /* integrante = responsavel */
-                  while (intv != NULL) {
-
-                     printf("%s\n", intv);
-                     intv = strtok(NULL, " =");
-
-                  }
-
-               /* entre projetos - nao encontra padrao da secao de integrantes */
-               } else {
-
-                  /* inicializa contadores */
-                  argc = 0;
-                  i = 0;
-
-                  /* separa buffer de linha */
-                  argv = strtok(buffer, "=");
-
-                  /* descarta linha */
-                  while (argv != NULL) {
-
-                     args[argc] = argv;
-                     argv = strtok(NULL, "=");
-                     argc++;
-
-                  }
-
-               }
-
-            } while (flagIntegrantes);
+            }
 
             pperiodico = malloc(sizeof(TipoPPeriodico));
 
@@ -318,21 +257,14 @@ void setListaPPeriodico(ListaPPeriodico **epinicio, char *arquivo) {
             pp1->proximoPPeriodico = pperiodico;
             pp1->pperiodico = NULL;
 
-				if (*epinicio == NULL)
-					*epinicio = pp1;
+            if (*epinicio == NULL)
+                *epinicio = pp1;
+            else
+                pp2->proximoPPeriodico = pp1;
+            pp2 = pp1;
+       }
 
-				else
-					pp2->proximoPPeriodico = pp1;
-
-				pp2 = pp1;
-
-         }
-
-      }
-
-      printf("\n");
-
-      fclose(pFile);
-
-   }
+    }
+    printf("\n");
+    fclose(pFile);
 }
