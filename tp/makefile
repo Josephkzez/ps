@@ -4,8 +4,8 @@ LEITURA = ./Leitura
 
 all: prog limpa
 
-prog: main.o mod_discente.o mod_projeto.o mod_periodico.o
-	gcc -g -Wall main.o mod_discente.o mod_projeto.o mod_periodico.o -o prog
+prog: main.o mod_discente.o mod_projeto.o mod_pperiodico.o
+	gcc -g -Wall main.o mod_discente.o mod_projeto.o mod_pperiodico.o -o prog
 	./prog
 
 #	test: main.c main_test.c
@@ -21,7 +21,7 @@ mod_discente.o: $(LEITURA)/mod_def_discente.h $(LEITURA)/mod_impl_discente.c
 mod_projeto.o: $(LEITURA)/mod_def_projeto.h $(LEITURA)/mod_impl_projeto.c
 	gcc -c -g -Wall $(LEITURA)/mod_impl_projeto.c -o mod_projeto.o
 
-mod_periodico.o: $(LEITURA)/mod_def_pperiodico.h $(LEITURA)/mod_impl_pperiodico.c
+mod_pperiodico.o: $(LEITURA)/mod_def_pperiodico.h $(LEITURA)/mod_impl_pperiodico.c
 	gcc -c -g -Wall $(LEITURA)/mod_impl_pperiodico.c -o mod_pperiodico.o
 
 
