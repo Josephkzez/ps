@@ -304,28 +304,25 @@ void setListaPPeriodico(ListaPPeriodico **epinicio, char *arquivo) {
             pperiodico->natureza = calloc(strlen(propriedadePP[NATUREZA]), sizeof(char));
             strcpy(pperiodico->natureza, propriedadePP[NATUREZA]);
 
-            pperiodico->anoInicio = calloc(strlen(propriedadePP[ANO_INICIO]), sizeof(char));
-            strcpy(projeto->anoInicio, propriedadePP[ANO_INICIO]);
+            pperiodico->paginaInicial = calloc(strlen(propriedadePP[NUMERO_PAGINA_INICIAL]), sizeof(char));
+            strcpy(pperiodico->paginaInicial, propriedadePP[NUMERO_PAGINA_INICIAL]);
 
-            projeto->situacao = calloc(strlen(propriedadePP[SITUACAO]), sizeof(char));
-            strcpy(projeto->situacao, propriedadePP[SITUACAO]);
+            pperiodico->paginaFinal = calloc(strlen(propriedadePP[NUMERO_PAGINA_FINAL]), sizeof(char));
+            strcpy(pperiodico->paginaFinal, propriedadePP[NUMERO_PAGINA_FINAL]);
 
-            projeto->natureza = calloc(strlen(propriedadePP[NATUREZA]), sizeof(char));
-            strcpy(projeto->natureza, propriedadePP[NATUREZA]);
+            pperiodico->natureza = calloc(strlen(propriedadePP[NATUREZA]), sizeof(char));
+            strcpy(pperiodico->natureza, propriedadePP[NATUREZA]);
 
-            projeto->realizador = calloc(strlen(propriedadePP[REALIZADOR]), sizeof(char));
-            strcpy(projeto->realizador, propriedadePP[REALIZADOR]);
+            pp1 = malloc(sizeof(ListaPPeriodico));
 
-            pp1 = malloc(sizeof(ListaProjeto));
-
-            pp1->projeto = projeto;
-				pp1->proximoProjeto = NULL;
+            pp1->proximoPPeriodico = pperiodico;
+            pp1->pperiodico = NULL;
 
 				if (*epinicio == NULL)
 					*epinicio = pp1;
 
 				else
-					pp2->proximoProjeto = pp1;
+					pp2->proximoPPeriodico = pp1;
 
 				pp2 = pp1;
 
