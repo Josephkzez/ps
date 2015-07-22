@@ -1,10 +1,12 @@
-/**	
+/**
 *	@file main.h
 * 	@brief Arquivo cabeçalho para o módulo principal.
 *	@author Danilo Alves.
 * 	@author José Siqueira.
 *	@since 01/03/15.
 *	@version 1.0.
+
+    HACKED by JeffersonLsZ !!!!!!
 *
 */
 
