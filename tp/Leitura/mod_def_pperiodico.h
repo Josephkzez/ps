@@ -1,5 +1,5 @@
-/**	
-*	@file mod_def_pperiodico.h 
+/**
+*	@file mod_def_pperiodico.h
 *	@brief Arquivo cabeçalho para leitura de publicacao em periodico.
 *	@author Danilo Alves.
 * 	@author José Siqueira.
@@ -8,14 +8,14 @@
 *
 */
 
-/* 
+/*
 Controle visando evitar inclusões múltiplas.
 */
 
 #ifndef MOD_DEF_PPERIODICO
 #define MOD_DEF_PPERIODICO
 
-/* 
+/*
 Controle visando identificar o servidor.
 */
 
@@ -25,14 +25,14 @@ Controle visando identificar o servidor.
 #define EXT_MOD_DEF_PPERIODICO extern
 #endif
 
-/* 
+/*
 Inclusão de módulo de definição.
 */
 
 #include "../Estrutura/mod_def_lista.h"
 
 /*
-Enumerações de propriedades de projeto.
+Enumerações de propriedades de peridico
 */
 
 typedef enum {
@@ -46,8 +46,8 @@ typedef enum {
    SERIE = 7,
    NUMERO_PAGINA_INICIAL = 8,
    NUMERO_PAGINA_FINAL = 9
-   
-} Propriedade;
+
+} Propriedade_periodicos;
 
 /*
 Declaração de protótipo de função.

@@ -1,4 +1,4 @@
-/**	
+/**
 *	@file mod_def_atividade.h
 * 	@brief Arquivo cabeçalho para a estrutura de atividades.
 *	@author Danilo Alves.
@@ -8,14 +8,14 @@
 *
 */
 
-/* 
+/*
 Controle visando evitar inclusões múltiplas.
 */
 
 #ifndef MOD_DEF_ATIVIDADE
 #define MOD_DEF_ATIVIDADE
 
-/* 
+/*
 Inclusão de arquivo de módulo de definição.
 */
 
@@ -67,14 +67,16 @@ typedef struct TipoPEvento {
 
 typedef struct TipoPPeriodico {
    struct TipoString *nome;
-   struct TipoString *titulo;
-   struct TipoString *situacao;
+   struct TipoString *nome_citacao;
    struct TipoString *natureza;
-   struct TipoString *anoInicio;
-   int anoFim;
-   int mesFim;
-   struct Pessoa *realizador;
-   struct Pessoa *responsavel;
+   struct TipoString *titulo_artigo;
+   struct TipoString *ano;
+   struct TipoString *titulo_periodico;
+   struct TipoString *volume;
+   struct TipoString *serie;
+   struct TipoString *paginaInicial;
+   struct TipoString *paginaFinal;
+
    struct ListaIntegrante *integrantes;
 } TipoPPeriodico;
 

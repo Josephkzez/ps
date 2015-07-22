@@ -25,21 +25,21 @@ int main(int argc, char **argv)
     }*/
 
     /* Scanning the in directory */
-    if (NULL == (FD = opendir ("/home/josephkzez/Workspace/ps/tp/Arquivos"))) 
+    if (NULL == (FD = opendir ("../Arquivos")))
     {
         fprintf(stderr, "Error : Failed to open input directory\n");
         //fclose(output_file);
 
         return 1;
     }
-    while ((in_file = readdir(FD))) 
+    while ((in_file = readdir(FD)))
     {
         /* On linux/Unix we don't want current and parent directories
          * If you're on Windows machine remove this two lines
          */
         /*if (!strcmp (in_file->d_name, "."))
             continue;
-        if (!strcmp (in_file->d_name, ".."))    
+        if (!strcmp (in_file->d_name, ".."))
             continue; */
         /* Open directory entry file for common operation */
         /* TODO : change permissions to meet your need! */

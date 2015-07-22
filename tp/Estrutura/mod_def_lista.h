@@ -1,4 +1,4 @@
-/**	
+/**
 *	@file mod_def_lista.h
 * 	@brief Arquivo cabeçalho para a estrutura de listas.
 *	@author Danilo Alves.
@@ -8,14 +8,14 @@
 *
 */
 
-/* 
+/*
 Controle visando evitar inclusões múltiplas.
 */
 
 #ifndef MOD_DEF_LISTA
 #define MOD_DEF_LISTA
 
-/* 
+/*
 Inclusão de arquivo de módulo de definição.
 */
 
@@ -61,7 +61,7 @@ typedef struct ListaPEvento {
 
 /* Para mod_impl_pperiodico.c */
 typedef struct ListaPPeriodico {
-	struct TipoPPeriodico *pevento;
+	struct TipoPPeriodico *pperiodico;
 	struct ListaPPeriodico *proximoPPeriodico;
 } ListaPPeriodico;
 
