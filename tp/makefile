@@ -5,15 +5,15 @@ LEITURA = ./Leitura
 all: prog limpa
 
 prog: main.o mod_discente.o mod_projeto.o mod_pperiodico.o
-	gcc -g -Wall main.o mod_discente.o mod_projeto.o mod_pperiodico.o -o prog
+	gcc -g main.c -Wall mod_discente.o mod_projeto.o mod_pperiodico.o -o prog
 	./prog
 
 #	test: main.c main_test.c
 #	gcc -I ./CUnit -L ./CUnit main_test.c -lcunit_$(ARCH) -o test
 #	./test
 
-main.o: main.c
-	gcc -c -g -Wall main.c
+#main.o: main.c
+#	gcc -c -g -Wall main.c
 
 mod_discente.o: $(LEITURA)/mod_def_discente.h $(LEITURA)/mod_impl_discente.c
 	gcc -c -g -Wall $(LEITURA)/mod_impl_discente.c -o mod_discente.o

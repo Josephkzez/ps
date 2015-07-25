@@ -1,7 +1,6 @@
 /**	
 *	@file mod_impl_docente.c 
 *	@brief Módulo que faz a leitura dos docentes.
-*	@author Danilo Alves.
 * 	@author José Siqueira.
 *	@since 01/03/15.
 *	@version 1.0.

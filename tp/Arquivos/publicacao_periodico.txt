@@ -1,8 +1,10 @@
-NOME COMPLETO = Genaina Nunes RodriguesNOME-PARA-CITACAO = RODRIGUES, G. N.;Rodrigues, Genaina Nunes;Rodrigues, Genaina Nunes;RODRIGUES, GENAINA N.;RODRIGUES, GENAINA;RODRIGUES, GENAINA N.
+NOME COMPLETO = Genaina Nunes Rodrigues
+NOME-PARA-CITACAO = RODRIGUES, G. N.;Rodrigues, Genaina Nunes;Rodrigues, Genaina Nunes;RODRIGUES, GENAINA N.;RODRIGUES, GENAINA;RODRIGUES, GENAINA N.
 		PUBLICACAO EM PERIODICO:
 
 NATUREZA = "COMPLETO"
-TITULO do ARTIGO = "Border Effect Analysis for Reliability Assurance and Continuous Connectivity of Wireless Sensor Networks in the Presence of Sensor Failures" ANO = "2014"
+TITULO do ARTIGO = "Border Effect Analysis for Reliability Assurance and Continuous Connectivity of Wireless Sensor Networks in the Presence of Sensor Failures" 
+ANO = "2014"
 IDIOMA = "Ingles"
 TITULO do PERIODICO = "IEEE Transactions on Wireless Communications"
 VOLUME = "13"

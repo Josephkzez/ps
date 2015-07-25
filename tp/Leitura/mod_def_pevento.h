@@ -1,7 +1,6 @@
 /**	
 *	@file mod_def_pevento.h 
 *	@brief Arquivo cabeçalho para leitura de publicacao em evento.
-*	@author Danilo Alves.
 * 	@author José Siqueira.
 *	@since 01/03/15.
 *	@version 1.0.
@@ -44,7 +43,7 @@ typedef enum {
    REALIZADOR = 5,
    NOME_CITACAO = 6,
    INTEGRANTES = 7
-} Propriedade;
+} Propriedade_eventos;
 
 /*
 Declaração de protótipo de função.

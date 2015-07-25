@@ -29,9 +29,7 @@ Definição de estrutura.
 
 typedef struct TipoPessoa {
   struct TipoString *nome;
-  int anoMatricula;
-  int matricula;
-  struct TipoString *vinculo;
+  struct TipoString *categoria;
   struct ListaNomeCitacao *nomesCitacao;
 } TipoPessoa;
 
