@@ -1,0 +1,187 @@
+cc    -c -o main.o main.c
+gcc -c -g -Wall ./Leitura/mod_impl_discente.c -o mod_discente.o
+gcc -c -g -Wall ./Leitura/mod_impl_projeto.c -o mod_projeto.o
+gcc -c -g -Wall ./Leitura/mod_impl_pperiodico.c -o mod_pperiodico.o
+gcc -g main.c -Wall mod_discente.o mod_projeto.o mod_pperiodico.o -o prog
+./prog
+15 84404 Aldo Henrique Dias Mendes                           
+2015 1 SEL        1902      Ciencia da Computacao 
+15 55145 Alexandre Lucchesi Alencar                          
+2015 1 SEL        1902      Ciencia da Computacao 
+12 48647 Alexandre Vaz Roriz                                 
+2012 1 SEL        1902      Ciencia da Computacao 
+14 182772 Aurelio Ribeiro Costa                               
+2014 2 SEL        1902      Ciencia da Computacao 
+14 182811 Breno Rodrigues de Moura                            
+2014 2 SEL        1902      Ciencia da Computacao 
+14 182799 Camila Feitosa Rego                                 
+2014 2 SEL        1902      Ciencia da Computacao 
+14 69623 Carlos Alberto de Sousa Parente Rodrigues           
+2014 1 SEL        1902      Ciencia da Computacao 
+14 69631 Carlos Botelho de Paula Filho                       
+2014 1 SEL        1902      Ciencia da Computacao 
+15 55170 Carlos Ricardo Machado Oliveira                     
+2015 1 SEL        1902      Ciencia da Computacao 
+14 69640 Daniel Cosme Mendonca Maia                          
+2014 1 SEL        1902      Ciencia da Computacao 
+15 55200 Danilo Amaral Ribeiro                               
+2015 1 SEL        1902      Ciencia da Computacao 
+14 69658 Dayane Sousa Costa                                  
+2014 1 SEL        1902      Ciencia da Computacao 
+14 69674 Deborah Mendes Ferreira                             
+2014 1 SEL        1902      Ciencia da Computacao 
+14 69682 Ennio Willian Lima Silva                            
+2014 1 SEL        1902      Ciencia da Computacao 
+14 69691 Fabio Barros Leal                                   
+2014 1 SEL        1902      Ciencia da Computacao 
+14 182829 Fausto Carvalho Marques Silva                       
+2014 2 SEL        1902      Ciencia da Computacao 
+12 184168 Fernando de Albuquerque Linhares                    
+2012 2 SEL        1902      Ciencia da Computacao 
+14 69801 Gabriel Heleno Goncalves da Silva                   
+2014 1 SEL        1902      Ciencia da Computacao 
+14 182845 Gabriel Siqueira Rodrigues                          
+2014 2 SEL        1902      Ciencia da Computacao 
+14 69704 Gileno Dias dos Santos                              
+2014 1 SEL        1902      Ciencia da Computacao 
+15 86300 Gizele Fernanda Abdon Julio                         
+2015 1 SEL        1902      Ciencia da Computacao 
+14 182861 Guilherme Fay Vergara                               
+2014 2 SEL        1902      Ciencia da Computacao 
+13 69230 Henrique Domingues Garcia                           
+2013 1 SEL        1902      Ciencia da Computacao 
+15 84234 Iasmini Virginia Oliveira Lima                      
+2015 1 SEL        1902      Ciencia da Computacao 
+14 69712 Jane Adriana de Souza                               
+2014 1 SEL        1902      Ciencia da Computacao 
+14 69721 Jeremias Moreira Gomes                              
+2014 1 SEL        1902      Ciencia da Computacao 
+14 88890 Joao Victor de Araujo Oliveira                      
+2014 1 SEL        1902      Ciencia da Computacao 
+14 69810 Jose Carlos Guimaraes Junior                        
+2014 1 SEL        1902      Ciencia da Computacao 
+14 69739 Laecio Lima dos Santos                              
+2014 1 SEL        1902      Ciencia da Computacao 
+14 69747 Leia Sousa de Sousa                                 
+2014 1 SEL        1902      Ciencia da Computacao 
+14 69755 Lucas Angelo da Silveira                            
+2014 1 SEL        1902      Ciencia da Computacao 
+13 50610 Lucas Borges Monteiro                               
+2013 1 SEL        1902      Ciencia da Computacao 
+14 69763 Lucas Rodrigues Costa                               
+2014 1 SEL        1902      Ciencia da Computacao 
+14 69771 Luciano Henrique de Oliveira Santos                 
+2014 1 SEL        1902      Ciencia da Computacao 
+15 74662 Luis Felipe Rabello Taveira                         
+2015 1 SEL        1902      Ciencia da Computacao 
+13 50644 Marco Antonio Caldas de Figueiredo Junior           
+2013 1 SEL        1902      Ciencia da Computacao 
+14 182870 Matheus Machado Monteiro                            
+2014 2 SEL        1902      Ciencia da Computacao 
+15 82568 Michel Junio Ferreira Rosa                          
+2015 1 SEL        1902      Ciencia da Computacao 
+14 182764 Pablo Ignacio Gandulfo                              
+2014 2 SEL        1902      Ciencia da Computacao 
+13 51233 Patricia Lustosa Ventura Ribeiro                    
+2013 1 SEL        1902      Ciencia da Computacao 
+15 74654 Patrick Cisuaka Kabongo                             
+2015 1 SEL        1902      Ciencia da Computacao 
+13 51284 Paula Leticia Santos Lima                           
+2013 1 SEL        1902      Ciencia da Computacao 
+15 55242 Reno Medeiros Dantas                                
+2015 1 SEL        1902      Ciencia da Computacao 
+13 51292 Rodrigo Pinheiro de Almeida                         
+2013 1 SEL        1902      Ciencia da Computacao 
+14 182781 Thiago Mael de Castro                               
+2014 2 SEL        1902      Ciencia da Computacao 
+15 55269 Thiago Mendonca Ferreira Ramos                      
+2015 1 SEL        1902      Ciencia da Computacao 
+13 51195 Thiago Peixoto dos Reis                             
+2013 1 SEL        1902      Ciencia da Computacao 
+15 55251 Tiago Henrique Costa Rodrigues Alves                
+2015 1 SEL        1902      Ciencia da Computacao 
+14 182853 Wagner dos Santos Boaventura Filho                  
+2014 2 SEL        1902      Ciencia da Computacao 
+12 48604 Alessandro Rodrigues e Silva                        
+2012 1 SEL        2631      Ciencia da Computacao 
+11 153090 Alexandre Fieno da Silva                            
+2011 2 SEL        2631      Ciencia da Computacao 
+12 178893 Ana Cristina Rocha Oliveira Valverde                
+2012 2 SEL        2631      Ciencia da Computacao 
+13 51225 Andre Luis Gobbi Sanches                            
+2013 1 SEL        2631      Ciencia da Computacao 
+12 149826 Andre Luiz Peron Martins Lanna                      
+2012 2 SEL        2631      Ciencia da Computacao 
+11 54768 Antonio Carlos de Arruda Junior                     
+2011 1 SEL        2631      Ciencia da Computacao 
+14 187171 Ariane Alves Almeida                                
+2014 2 SEL        2631      Ciencia da Computacao 
+13 51276 Carolina Goncalves Abreu                            
+2013 1 SEL        2631      Ciencia da Computacao 
+15 74603 Daniel da Silva Souza                               
+2015 1 SEL        2631      Ciencia da Computacao 
+14 69372 Daniel Saad Nogueira Nunes                          
+2014 1 SEL        2631      Ciencia da Computacao 
+13 51241 Daniel Sundfeld Lima                                
+2013 1 SEL        2631      Ciencia da Computacao 
+12 48582 Edans Flavius de Oliveira Sandes                    
+2012 1 SEL        2631      Ciencia da Computacao 
+15 55293 Elton Sarmanho Siqueira                             
+2015 1 SEL        2631      Ciencia da Computacao 
+13 50652 Emerson de Araujo Macedo                            
+2013 1 SEL        2631      Ciencia da Computacao 
+10 132987 Emerson Lopes Machado                               
+2010 2 SEL        2631      Ciencia da Computacao 
+11 54776 Fabricio Nogueira Buzeto                            
+2011 1 SEL        2631      Ciencia da Computacao 
+11 57414 Felipe Gomes Lacerda                                
+2011 1 SEL        2631      Ciencia da Computacao 
+14 69381 Giselle Barbosa Gomes Machado                       
+2014 1 SEL        2631      Ciencia da Computacao 
+14 69402 Gustavo Siqueira Vinhal                             
+2014 1 SEL        2631      Ciencia da Computacao 
+14 89489 Helard Alberto Becerra Martinez                     
+2014 1 SEL        2631      Ciencia da Computacao 
+15 55307 Henrique Pereira de Freitas Filho                   
+2015 1 SEL        2631      Ciencia da Computacao 
+12 149800 Hugo Wruck Schneider                                
+2012 2 SEL        2631      Ciencia da Computacao 
+13 50628 Idarlan Martins Machado                             
+2013 1 SEL        2631      Ciencia da Computacao 
+14 195106 Jonathan Alis Salgado Lima                          
+2014 2 SEL        2631      Ciencia da Computacao 
+13 63126 Jose Luis Soncco Alvarez                            
+2013 1 SEL        2631      Ciencia da Computacao 
+14 182756 Jose Pergentino de Araujo Neto                      
+2014 2 SEL        2631      Ciencia da Computacao 
+12 149796 Leonardo Luiz Barbosa Vieira Cruciol                
+2012 2 SEL        2631      Ciencia da Computacao 
+14 89471 Luiz Augusto Garcia da Silva                        
+2014 1 SEL        2631      Ciencia da Computacao 
+14 182721 Marcos Fagundes Caetano                             
+2014 2 SEL        2631      Ciencia da Computacao 
+15 55331 Paulo Jose de Souza Junior                          
+2015 1 SEL        2631      Ciencia da Computacao 
+13 72222 Pedro Garcia Freitas                                
+2013 1 SEL        2631      Ciencia da Computacao 
+15 55340 Rafael Marconi Ramos                                
+2015 1 SEL        2631      Ciencia da Computacao 
+14 69429 Ricardo Regis Cavalcante Chaves                     
+2014 1 SEL        2631      Ciencia da Computacao 
+10 132855 Shana Schlottfeldt Santos                           
+2010 2 SEL        2631      Ciencia da Computacao 
+11 54725 Ulisses Rodrigues Afonseca                          
+2011 1 SEL        2631      Ciencia da Computacao 
+14 182713 Vitor Filincowsky Ribeiro                           
+2014 2 SEL        2631      Ciencia da Computacao 
+14 69437 Washington Luis Ribeiro de Carvalho Segundo         
+2014 1 SEL        2631      Ciencia da Computacao 
+10 132871 Wosley da Costa Arruda                              
+2010 2 SEL        2631      Ciencia da Computacao 
+12 99551 Zheng Jianya                                        
+2012 1 SEL        2631      Ciencia da Computacao 
+
+
+
+LISTA PERIODICOS 
+rm *.o

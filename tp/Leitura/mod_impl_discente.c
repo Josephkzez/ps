@@ -1,14 +1,10 @@
-/**	
-*	@file mod_impl_discente.c 
+/**
+*	@file mod_impl_discente.c
 *	@brief Módulo que faz a leitura dos discentes.
 * 	@author José Siqueira.
 *	@since 01/03/15.
 *	@version 1.0.
 *
-*/
-
-/* 
-Inclusão de biblioteca do compilador.
 */
 
 #include <stdio.h>
@@ -22,13 +18,13 @@ Declaração visando identificar o módulo como servidor.
 
 #define MOD_IMPL_DISCENTE
 
-/* 
+/*
 Inclusão de módulo de definição.
 */
 
 #include "mod_def_discente.h"
 
-/* 
+/*
 Termina processamento de módulo de implementação.
 */
 
@@ -37,20 +33,22 @@ Termina processamento de módulo de implementação.
 /*
 Definição de corpo de função.
 */
-
+char* getNomeDiscente(char *linha);
 /**
 * Uma função que percorre a lista de discentes.
 * @param *pinicio um ponteiro para o inicio da lista de discentes.
 * @return sem retorno.
 */
-void getListaDiscente(ListaDiscente *pinicio) {
-	
-	ListaDiscente *pd1;
-	
-	TipoPessoa *discente;
-	char *nome;
+void getListaDiscente(ListaDiscente *inicioPtr) {
 
-	
+    if(inicioPtr==NULL) return;
+
+	ListaDiscente* pd1=inicioPtr;
+
+    while(pd1!=NULL){
+        printf("%s\n", pd1->discente->nome);
+        pd1=pd1->proximoDiscente;
+    }
 }
 
 /**
@@ -59,70 +57,47 @@ void getListaDiscente(ListaDiscente *pinicio) {
 * @param *arquivo um array de caracteres que contem o nome do arquivo.
 * @return sem retorno.
 */
-void setListaDiscente(ListaDiscente **epinicio, char *arquivo) {
-   
-   
-    int anoMatricula;
-	int matricula;
-	char separador;
-   char buffer[78];
-   char nome[30];
-   char c; //SERA QUE EH ISSO AQUI
-   
+void setListaDiscente(ListaDiscente **inicioPtr, char *arquivo) {
+
     FILE *pArquivo;
-   
+    //ListaDiscente* listaPtr;
+
     pArquivo = fopen(arquivo, "r");
-    
+
     char* linha=NULL;
     size_t len = 0;
     ssize_t read;
-    
-    if(ferror(pArquivo)){
-		printf("Arquivo '%s' vazio\n", arquivo);
-	}else {
-		// descarta informacoes de cabecalho do arquivo de entrada 
-       //  ate encontrar a palavra Matricula
-		while (strcmp("Matricula", nome) != 0) {
-				
-			fgets(buffer, sizeof(buffer), pArquivo);
-			sscanf(buffer,"%s", &nome);
-			
-		}
-		
-		/* filtra informacoes e constroi lista de discentes */
-		while ((fgets(buffer, sizeof(buffer), pArquivo)) != NULL ) {
-			TipoPessoa* discente;
-			if (sscanf(buffer,"%d%c%d %[^\n]s", &anoMatricula, &separador, &matricula, nome) == 4) {
-				
-				discente = malloc(sizeof(TipoPessoa));
-				 printf("%d %d %s \n",anoMatricula, matricula, nome);
-				/*discente->anoMatricula = anoMatricula;
-				discente->matricula = matricula;
-				
-            discente->nome = calloc(strlen(nome), sizeof(char));
-            strcpy(discente->nome, nome);
-				
-				pd1 = malloc(sizeof(ListaDiscente));
-				
-				pd1->discente = discente;
-				pd1->proximoDiscente = NULL;
-				
-				if (*epinicio == NULL)
-					*epinicio = pd1;
-				
-				else
-					pd2->proximoDiscente = pd1;
-					
-				pd2 = pd1;
-				
-				while (getc(pArquivo) != 10); */
-		
-			}
-			
-		}
-		
-	}
 
-    fclose (pArquivo);	
+    int contadorLinha=0;
+    while ((read = getline(&linha, &len, pArquivo)) != -1){ //le o arquivo linha por linha
+        if(contadorLinha++<9 || linha[91]!='S') continue; //ignora os cabecalhos do arquivo de discentes
+        char* pt=linha; //faz o tratamento para pegar apenas o nome completo na lista
+        pt+=26;
+        *(pt+50)='\0'; //finaliza tratamento para pegar nome completo
 
+        char buffer[52];
+        strcpy(buffer, pt);
+
+        TipoPessoa* tp = (TipoPessoa*)malloc(sizeof(TipoPessoa));
+        tp->nome = (char*)malloc(strlen(buffer)+1);
+        strcpy(tp->nome, buffer);
+        tp->categoria = malloc(strlen("Discente")+1);
+        strcpy(tp->categoria, "Discente");
+
+        ListaDiscente* ld = (ListaDiscente*)malloc(sizeof(ListaDiscente));
+        ld->discente = tp;
+        ld->proximoDiscente = NULL;
+
+        if(*inicioPtr==NULL)
+            *inicioPtr = ld;
+        else{
+            ListaDiscente* pt = *inicioPtr;
+            while(pt->proximoDiscente!=NULL){
+               pt=pt->proximoDiscente;
+            }
+            pt->proximoDiscente=ld;
+
+        }
+    }
+    fclose (pArquivo);
 }

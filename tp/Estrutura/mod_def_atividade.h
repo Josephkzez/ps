@@ -51,15 +51,18 @@ typedef struct TipoProjeto {
 /* Para evento */
 
 typedef struct TipoPEvento {
-   struct TipoString *nome;
-   struct TipoString *titulo;
-   struct TipoString *situacao;
+   struct TipoString *nome_completo;
+   struct TipoString *nome_citacao;;
    struct TipoString *natureza;
-   struct TipoString *anoInicio;
-   int anoFim;
-   int mesFim;
-   struct Pessoa *realizador;
-   struct Pessoa *responsavel;
+   struct TipoString *titulo;
+   struct TipoString *pais;
+   struct TipoString *idioma;
+   struct TipoString *nome_evento;
+   struct TipoString *ano;
+   struct TipoString *proceedings;
+   struct TipoString *volume;
+   struct TipoString *paginaInicial;
+   struct TipoString *paginaFinal;
    struct ListaIntegrante *integrantes;
 } TipoPEvento;
 

@@ -1,0 +1,87 @@
+cc    -c -o main.o main.c
+gcc -c -g -Wall ./Leitura/mod_impl_discente.c -o mod_discente.o
+gcc -c -g -Wall ./Leitura/mod_impl_projeto.c -o mod_projeto.o
+gcc -c -g -Wall ./Leitura/mod_impl_pperiodico.c -o mod_pperiodico.o
+gcc -c -g -Wall ./Leitura/mod_impl_pevento.c -o mod_pevento.o
+gcc -g main.c -Wall mod_discente.o mod_projeto.o mod_pperiodico.o mod_pevento.o -o prog
+./prog
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+nome do integrante: 1."David S. Rosenblum"
+
+nome para citacao: a. Nome para citacao = "ROSENBLUM, D. S."
+
+ordem de auditoria: b.Ordem de autoria = 2
+
+nome para citacao: 2. "Jonas Wolf"
+
+ordem de auditoria: a. Nome para citacao ="WOLF, J."
+
+nome para citacao: b. Ordem de autoria = 3
+
+ordem de auditoria: 3. "Genaina Nunes Rodrigues"
+
+nome para citacao: a. Nome para citacao ="RODRIGUES, G. N.;Rodrigues, Genaina Nunes;Rodrigues, Genaina Nunes;RODRIGUES, GENAINA N.;RODRIGUES, GENAINA;RODRIGUES, GENAINA N."
+
+ordem de auditoria: b. Ordem de autoria = 1
+
+nome para citacao: 
+
+ordem de auditoria: NATUREZA = "COMPLETO"
+
+nome para citacao: TITULO ="Modelling and analysing contextual failures for dependability requirements"
+
+ordem de auditoria: ANO = "2014"
+
+nome para citacao: PAIS = "Estados Unidos"
+
+ordem de auditoria: IDIOMA = "Ingles"
+
+nome para citacao: NOME DO EVENTO = "the 9th International Symposium on Software Engineering for Adaptive and Self-Managing Systems"
+
+ordem de auditoria: ANO = Ò2014Ó
+
+nome para citacao: PROCEEDINGS = "Proceedings of the 9th International Symposium on Software Engineering for Adaptive and Self-Managing Systems - SEAMS 2014"
+
+ordem de auditoria: VOLUME=""
+
+nome para citacao: PAGINA INICIAL = "55"
+
+ordem de auditoria: PAGINA-FINAL = ""
+
+nome para citacao: 1. ÓMENDONCA, DANILO F."
+
+ordem de auditoria: a. Nome para citacao = "MENDONCA, DANILO F."
+
+nome para citacao: b. Ordem de autoria = "1"
+
+ordem de auditoria: 2. "ALI, RAIAN"
+
+nome para citacao: a. Nome para citacao = "ALI, RAIAN"
+
+ordem de auditoria: b. Ordem de autoria = "2"
+
+nome para citacao: 3. ÓGenaina Nunes Rodrigues"
+
+ordem de auditoria: a. Nome para citacao = "RODRIGUES, GENAINA N."
+
+nome para citacao: b. Ordem de autoria = "3"
+
+
+
+
+LISTA PERIODICOS 
+rm *.o

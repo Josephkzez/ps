@@ -1,4 +1,4 @@
-/**	
+/**
 *	@file mod_def_pessoa.h
 * 	@brief Arquivo cabeçalho para a estrutura de pessoas.
 *	@author Danilo Alves.
@@ -8,29 +8,29 @@
 *
 */
 
-/* 
+/*
 Controle visando evitar inclusões múltiplas.
 */
 
 #ifndef MOD_DEF_PESSOA
 #define MOD_DEF_PESSOA
 
-/* 
+/*
 Inclusão de arquivo de módulo de definição.
 */
 
 #include "mod_def_atividade.h"
 #include "mod_def_lista.h"
-#include "mod_def_string.h"
+
 
 /*
 Definição de estrutura.
 */
 
 typedef struct TipoPessoa {
-  struct TipoString *nome;
-  struct TipoString *categoria;
-  struct ListaNomeCitacao *nomesCitacao;
+  char *nome;
+  char *categoria;
+  char* *nomesCitacao;
 } TipoPessoa;
 
 #endif

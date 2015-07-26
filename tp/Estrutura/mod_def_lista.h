@@ -21,7 +21,6 @@ Inclusão de arquivo de módulo de definição.
 
 #include "mod_def_atividade.h"
 #include "mod_def_pessoa.h"
-#include "mod_def_string.h"
 
 /*
 Definição de estrutura.
@@ -33,7 +32,7 @@ typedef struct ListaIntegrante {
 } ListaIntegrante;
 
 typedef struct ListaNomeCitacao {
-   struct TipoString *nomeCitacao;
+   char* *nomeCitacao;
    struct ListaNomeCitacao *proximaCitacao;
 } ListaNomeCitacao;
 
@@ -64,7 +63,6 @@ typedef struct ListaPPeriodico {
 	struct TipoPPeriodico *pperiodico;
 	struct ListaPPeriodico *proximoPPeriodico;
 } ListaPPeriodico;
-
 
 
 #endif

@@ -80,32 +80,22 @@ void getListaPPeriodico(ListaPPeriodico *pinicio)
 
 void setListaPPeriodico(ListaPPeriodico **epinicio, char *arquivo){
     FILE *pFile;
-    int argc; /* contador de argumentos do buffer de linha */
-    char *args[2]; /* propriedades e valores dos projetos */
-    char *argv; /* valor da propriedade */
-    char bufferIntegrante[256]; /* buffer temporario para integrantes dos projetos */
-    char c; /* caracter de leitura de arquivo */
-    char *intv; /* valor de string entre tokens do buffer de integrantes dos projetos */
-    char *propriedadePP[10]; /* valores das propriedades */
-    int i; /* contador de caracteres do buffer de linha */
-    int numeroIntegrante; /* numero do integrante do projeto */
-    int flagIntegrantes; /* sinaliza leitura de secao de integrantes do projeto */
-    ListaPPeriodico *pp1; /* ponteiro auxiliar de lista de projeto */
-    ListaPPeriodico *pp2; /* ponteiro auxiliar de lista de projeto */
-    TipoPessoa *integrante; /* ponteiro de integrante */
+
+
+    //TipoPessoa *integrante; /* ponteiro de integrante */
     TipoPPeriodico *pperiodico; /* ponteiro de projeto */
 
-    
+
     pFile = fopen(arquivo, "r"); /* abre arquivo */
 
     char* linha=NULL;
     size_t len = 0;
     ssize_t read;
-    
+
     int fAutores=0; //flag que indica o inicio da leitura dos autores
     int campo=0; //flag que assiste a posicao do campo
     int stateS=0; //flag que assiste o campo dos integrantes
-    
+
     while ((read = getline(&linha, &len, pFile)) != -1){  // le o arquivo linha a linha
 		pperiodico = (TipoPPeriodico*) malloc(sizeof(TipoPPeriodico));
 		if(linha[0]=='A' && linha[1]=='U'){
@@ -114,7 +104,7 @@ void setListaPPeriodico(ListaPPeriodico **epinicio, char *arquivo){
 		}
 		if(!fAutores){
 			char* propriedade;
-			char* valor;	
+			char* valor;
 			char* token = strtok (linha,"=");
 			if(token!=NULL && strlen(token)>1){
 				//printf("token %d: %s ", campo++, token);
@@ -126,7 +116,7 @@ void setListaPPeriodico(ListaPPeriodico **epinicio, char *arquivo){
 				valor = token;
 			}
 			//printf("prop: %s valor: %s", propriedade, valor);
-			
+
 			if(strcmp(propriedade, "NOME COMPLETO ")==0){
 				pperiodico->nome_completo = valor;
 				printf("NOME COMPLETO = %s\n", pperiodico->nome_completo);
@@ -134,7 +124,7 @@ void setListaPPeriodico(ListaPPeriodico **epinicio, char *arquivo){
 				pperiodico->nome_citacao=valor;
 				printf("nome citacao: %s", pperiodico->nome_citacao);
 			} else if (strcmp(propriedade, "NATUREZA ")==0){
-				pperiodico->natureza=valor;
+				pperiodico->natureza= (char*)valor;
 				printf("natureza: %s", pperiodico->natureza);
 			} else if (strcmp(propriedade, "TITULO do ARTIGO ")==0){
 				pperiodico->titulo_artigo = valor;
@@ -152,13 +142,13 @@ void setListaPPeriodico(ListaPPeriodico **epinicio, char *arquivo){
 				pperiodico->volume = valor;
 				printf("volume: %s", pperiodico->volume);
 			} else if (strcmp(propriedade, "SERIE ")==0 && valor != NULL){
-				pperiodico->serie = valor;
+				pperiodico->serie = (char*) valor;
 				printf("serie: %s", pperiodico->serie);
 			} else if (strcmp(propriedade, "PAGINA INICIAL ")==0 && valor != NULL){
-				pperiodico->paginaInicial = valor;
+				pperiodico->paginaInicial = (char*) valor;
 				printf("pagina inicial: %s", pperiodico->paginaInicial);
 			} else if (strcmp(propriedade, "PAGINA FINAL ")==0 && valor != NULL){
-				pperiodico->paginaFinal = valor;
+				pperiodico->paginaFinal = (char*) valor;
 				printf("pagina final: %s", pperiodico->paginaFinal);
 			}
 			campo=0;
@@ -172,7 +162,7 @@ void setListaPPeriodico(ListaPPeriodico **epinicio, char *arquivo){
 				printf("ordem de auditoria: %s", linha);
 				stateS=0;
 			}
-			stateS++;			
+			stateS++;
 		}
 			printf("\n");
 	}

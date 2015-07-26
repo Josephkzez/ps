@@ -15,32 +15,39 @@
 #include "Estrutura/mod_def_pessoa.h"
 #include "Leitura/mod_def_projeto.h"
 
+struct ListaDiscente* pInicioDiscentesMestrado;
+struct ListaDiscente* pInicioDiscentesDoutorado;
+struct ListaProjeto *pInicioProjetos;
+struct ListaPEvento* pInicioPEventos;
+struct ListaPPeriodico* pInicioPPeriodicos;
 
 int main() {
 
    char discentesMestrado[] = "Arquivos/discentes_mestrado.txt";
    char discentesDoutorado[] = "Arquivos/discentes_doutorado.txt";
-    //char projetos[] = "Arquivos/projetos.txt";
-    //char periodicos[] = "Arquivos/publicacao_periodico.txt";
+   char projetos[] = "Arquivos/projetos.txt";
+   char periodicos[] = "Arquivos/publicacao_periodico.txt";
+   char eventos[] = "Arquivos/publicacao_eventos.txt";
 
-   struct ListaDiscente* pInicioDiscentesMestrado;
-   struct ListaDiscente* pInicioDiscentesDoutorado;
+
    //struct ListaDocente *pInicioDocentes;
-   //struct ListaProjeto *pInicioProjetos;
+
    //struct ListaPPeriodico *pInicioPPeriodicos;
 
    pInicioDiscentesMestrado = NULL;
    pInicioDiscentesDoutorado = NULL;
+   pInicioProjetos=NULL;
    //pInicioDocentes = NULL;
-   //pInicioProjetos = NULL;
-   //pInicioPPeriodicos = NULL;
+   pInicioPPeriodicos = NULL;
 
    setListaDiscente(&pInicioDiscentesMestrado, discentesMestrado);
    setListaDiscente(&pInicioDiscentesDoutorado, discentesDoutorado);
+
+
    //setListaProjeto(&pInicioProjetos, projetos);
    //setListaPPeriodico(&pInicioPPeriodicos, periodicos);
+   setListaPEvento(&pInicioPEventos, eventos);
 
-   // PercorreListaDiscente(pInicioDiscentes);
 
    //getListaProjeto(pInicioProjetos);
    //getListaProjeto(&pInicioProjetos); // Imprime lista de discentes do PPGI

@@ -1,9 +1,11 @@
-NOME COMPLETO = Genaina Nunes RodriguesNOME-PARA-CITACAO = RODRIGUES, G. N.;Rodrigues, Genaina Nunes;Rodrigues, Genaina Nunes;RODRIGUES, GENAINA N.;RODRIGUES, GENAINA;RODRIGUES, GENAINA N.
-		PUBLICACAO EM EVENTOS:
+NOME COMPLETO = Genaina Nunes Rodrigues
+NOME-PARA-CITACAO = RODRIGUES, G. N.;Rodrigues, Genaina Nunes;Rodrigues, Genaina Nunes;RODRIGUES, GENAINA N.;RODRIGUES, GENAINA;RODRIGUES, GENAINA N.
 
-NATUREZA = "RESUMO_EXPANDIDO" 
-TITULO = "Reliability Analysis of Concurrent Systems using LTSA" 
-PAIS = "Estados Unidos" 
+PUBLICACAO EM EVENTOS:
+
+NATUREZA = "RESUMO_EXPANDIDO"
+TITULO = "Reliability Analysis of Concurrent Systems using LTSA"
+PAIS = "Estados Unidos"
 IDIOMA = "Ingles"
 NOME DO EVENTO = "International Conference on Software Engineering"
 ANO = 2007
@@ -22,24 +24,24 @@ b. Ordem de autoria = 3
 a. Nome para citacao ="RODRIGUES, G. N.;Rodrigues, Genaina Nunes;Rodrigues, Genaina Nunes;RODRIGUES, GENAINA N.;RODRIGUES, GENAINA;RODRIGUES, GENAINA N."
 b. Ordem de autoria = 1
 
-NATUREZA = "COMPLETO" 
-TITULO ="Modelling and analysing contextual failures for dependability requirements" 
-ANO = "2014" 
-PAIS = "Estados Unidos" 
-IDIOMA = "Ingles" 
-NOME DO EVENTO = "the 9th International Symposium on Software Engineering for Adaptive and Self-Managing Systems" 
-ANO = Ò2014Ó 
+NATUREZA = "COMPLETO"
+TITULO ="Modelling and analysing contextual failures for dependability requirements"
+ANO = "2014"
+PAIS = "Estados Unidos"
+IDIOMA = "Ingles"
+NOME DO EVENTO = "the 9th International Symposium on Software Engineering for Adaptive and Self-Managing Systems"
+ANO = Ò2014Ó
 PROCEEDINGS = "Proceedings of the 9th International Symposium on Software Engineering for Adaptive and Self-Managing Systems - SEAMS 2014"
 VOLUME=""
 PAGINA INICIAL = "55"
 PAGINA-FINAL = ""
-AUTORES 
-1. ÓMENDONCA, DANILO F." 
-a. Nome para citacao = "MENDONCA, DANILO F." 
-b. Ordem de autoria = "1" 
-2. "ALI, RAIAN" 
-a. Nome para citacao = "ALI, RAIAN" 
-b. Ordem de autoria = "2" 
-3. ÓGenaina Nunes Rodrigues" 
-a. Nome para citacao = "RODRIGUES, GENAINA N." 
+AUTORES
+1. ÓMENDONCA, DANILO F."
+a. Nome para citacao = "MENDONCA, DANILO F."
+b. Ordem de autoria = "1"
+2. "ALI, RAIAN"
+a. Nome para citacao = "ALI, RAIAN"
+b. Ordem de autoria = "2"
+3. ÓGenaina Nunes Rodrigues"
+a. Nome para citacao = "RODRIGUES, GENAINA N."
 b. Ordem de autoria = "3"
