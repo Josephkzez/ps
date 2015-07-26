@@ -47,35 +47,7 @@ Definição de corpo de função.
 void getListaPPeriodico(ListaPPeriodico *pinicio)
 {
 
-    return;
-    char *nome;
 
-    ListaPPeriodico *pp1;
-    TipoPPeriodico *pperiodico;
-
-    pp1 = NULL;
-    pperiodico = NULL;
-    nome = "/0";
-
-    if (pinicio == NULL)
-    {
-        printf("Lista Vazia!\n");
-        return;
-    } else {
-        printf("HAHAHAAHA");
-        pp1 = pinicio;
-       /* while (pp1 != NULL)
-        {
-
-            pperiodico = (TipoPPeriodico *) pp1->pperiodico;
-
-            nome = pperiodico->titulo_periodico;
-            printf("%s\n", nome);
-            pp1 = pp1->proximoPPeriodico;
-
-        } */
-
-    }
 }
 
 void setListaPPeriodico(ListaPPeriodico **epinicio, char *arquivo){
@@ -119,37 +91,37 @@ void setListaPPeriodico(ListaPPeriodico **epinicio, char *arquivo){
 
 			if(strcmp(propriedade, "NOME COMPLETO ")==0){
 				pperiodico->nome_completo = valor;
-				printf("NOME COMPLETO = %s\n", pperiodico->nome_completo);
+				printf("NOME COMPLETO = %s\n", pperiodico->nome_completo->valor);
 			} else if (strcmp(propriedade, "NOME-PARA-CITACAO ")==0){
 				pperiodico->nome_citacao=valor;
-				printf("nome citacao: %s", pperiodico->nome_citacao);
+				printf("nome citacao: %s", pperiodico->nome_citacao->valor);
 			} else if (strcmp(propriedade, "NATUREZA ")==0){
 				pperiodico->natureza= (char*)valor;
-				printf("natureza: %s", pperiodico->natureza);
+				printf("natureza: %s", pperiodico->natureza->valor);
 			} else if (strcmp(propriedade, "TITULO do ARTIGO ")==0){
 				pperiodico->titulo_artigo = valor;
-				printf("titulo artigo: %s", pperiodico->titulo_artigo);
+				printf("titulo artigo: %s", pperiodico->titulo_artigo->valor);
 			} else if (strcmp(propriedade, "ANO ")==0){
 				pperiodico->ano = valor;
-				printf("ano: %s", pperiodico->ano);
+				printf("ano: %s", pperiodico->ano->valor);
 			} else if (strcmp(propriedade, "IDIOMA ")==0){
 				pperiodico->idioma = valor;
-				printf("idioma: %s", pperiodico->idioma);
+				printf("idioma: %s", pperiodico->idioma->valor);
 			} else if (strcmp(propriedade, "TITULO do PERIODICO ")==0){
 				pperiodico->titulo_periodico = valor;
-				printf("titulo do periodico: %s", pperiodico->titulo_periodico);
+				printf("titulo do periodico: %s", pperiodico->titulo_periodico->valor);
 			} else if (strcmp(propriedade, "VOLUME ")==0 && valor != NULL){
 				pperiodico->volume = valor;
-				printf("volume: %s", pperiodico->volume);
+				printf("volume: %s", pperiodico->volume->valor);
 			} else if (strcmp(propriedade, "SERIE ")==0 && valor != NULL){
 				pperiodico->serie = (char*) valor;
-				printf("serie: %s", pperiodico->serie);
+				printf("serie: %s", pperiodico->serie->valor);
 			} else if (strcmp(propriedade, "PAGINA INICIAL ")==0 && valor != NULL){
 				pperiodico->paginaInicial = (char*) valor;
-				printf("pagina inicial: %s", pperiodico->paginaInicial);
+				printf("pagina inicial: %s", pperiodico->paginaInicial->valor);
 			} else if (strcmp(propriedade, "PAGINA FINAL ")==0 && valor != NULL){
 				pperiodico->paginaFinal = (char*) valor;
-				printf("pagina final: %s", pperiodico->paginaFinal);
+				printf("pagina final: %s", pperiodico->paginaFinal->valor);
 			}
 			campo=0;
 		}else{ // Analisar integrantes

@@ -28,6 +28,7 @@ Definição de estrutura.
 
 typedef struct ListaIntegrante {
    struct TipoPessoa *integrante;
+   char* ordemAuditoria;
    struct ListaIntegrante *proximoIntegrante;
 } ListaIntegrante;
 

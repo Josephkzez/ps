@@ -30,7 +30,7 @@ Definição de estrutura.
 typedef struct TipoPessoa {
   char *nome;
   char *categoria;
-  char* *nomesCitacao;
+  char *nomesCitacao;
 } TipoPessoa;
 
 #endif

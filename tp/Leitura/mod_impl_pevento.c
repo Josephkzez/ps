@@ -66,16 +66,16 @@ void setListaPEvento(ListaPEvento **epinicio, char *arquivo) {
     int stateS=0; //flag que assiste o campo dos integrantes
     int campoState=0; //flag que assiste a contagem dos campos de integrantes
 
+    ListaIntegrante* integrantes = NULL; // CRIA UMA lista de integrante inicial
+
     while ((read = getline(&linha, &len, pFile)) != -1){  // loop de leitura linha a linha
        TipoPEvento* evento = (TipoPEvento*)malloc(sizeof(TipoPEvento));
        if(linha[0]=='A' && linha[1]=='U'){
 			fAutores = 1;
-			continue;
+			break;
        }
 
-       if(fAutores && linha[0]==' '){
-         fAutores=0;
-       }
+       printf("%s", linha);
 
        if(!fAutores){
             char* propriedade;
@@ -131,29 +131,14 @@ void setListaPEvento(ListaPEvento **epinicio, char *arquivo) {
 			}
 
        }else{
+
            if(strlen(linha)==1){
               fAutores=0;
+            }
               continue;
            }
-
-           if(stateS==0){
-				printf("nome do integrante: %s", linha);
-				stateS++;
-			}else if (stateS==1){
-				printf("nome para citacao: %s", linha);
-				stateS++;
-			}  else if (stateS==2){
-				printf("ordem de auditoria: %s", linha);
-				stateS=0;
-			}
-
 		}
 			printf("\n");
 
-       }
       fclose(pFile);
-
 }
-
-
-
