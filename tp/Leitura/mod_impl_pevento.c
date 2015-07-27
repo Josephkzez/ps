@@ -14,6 +14,8 @@ Inclusão de biblioteca do compilador.
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <dirent.h>
+
 
 /*
 Declaração visando identificar o módulo como servidor.
@@ -47,6 +49,45 @@ void getListaPEvento(ListaPEvento *pinicio) {
 
 }
 
+
+FILE* getArquivoPEvento(void){
+      DIR* dir;
+      struct dirent *ent;
+      char* arq;
+
+    if ((dir = opendir ("./Arquivos")) != NULL)
+    {
+
+       while ((ent = readdir (dir)) != NULL)
+       {
+
+           if (strcmp (ent->d_name, ".")==0)
+                continue;
+           if (strcmp (ent->d_name, "..")==0)
+                continue;
+
+            if (strcmp (ent->d_name, "publicacao_eventos.txt")==0)
+            {
+                 printf("ent: %s\n", ent->d_name);
+                 arq = ent->d_name;
+            }
+
+
+       }
+    }
+    if(arq!=NULL){
+      char abs[100];
+      strcpy(abs, "Arquivos/");
+      strcat(abs, arq);
+      printf("abs %s ", abs);
+      closedir(dir);
+      FILE* fp = fopen(abs, "r");
+
+      return fp;
+    }else
+       return NULL;
+}
+
 /**
 * Uma função que constroi uma lista de projetos a partir do arquivo de entrada.
 * @param **epinicio o endereco do ponteiro da lista de projetos.
@@ -55,7 +96,10 @@ void getListaPEvento(ListaPEvento *pinicio) {
 */
 void setListaPEvento(ListaPEvento **epinicio, char *arquivo) {
    FILE *pFile;
-   pFile = fopen(arquivo, "r");
+    //pFile = fopen(arquivo, "r");
+
+
+    pFile = getArquivoPEvento();
 
     char* linha=NULL;
     size_t len = 0;
@@ -131,14 +175,13 @@ void setListaPEvento(ListaPEvento **epinicio, char *arquivo) {
 			}
 
        }else{
-
            if(strlen(linha)==1){
               fAutores=0;
             }
               continue;
            }
 		}
-			printf("\n");
+        printf("\n");
 
       fclose(pFile);
 }

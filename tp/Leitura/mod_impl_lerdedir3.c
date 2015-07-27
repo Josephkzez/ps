@@ -6,12 +6,7 @@ int main()
 {
     DIR *dir;
     struct dirent *ent;
-    /*
-    typedef struct ListaArquivos_{
-    	char *nome_arquivo;
-    	char *proximo_arquivo;
-    }ListaArquivos;
-    */
+
     char *arq1;
     char *arq2;
 

@@ -1,5 +1,5 @@
-/**	
-*	@file mod_def_pevento.h 
+/**
+*	@file mod_def_pevento.h
 *	@brief Arquivo cabeçalho para leitura de publicacao em evento.
 * 	@author José Siqueira.
 *	@since 01/03/15.
@@ -7,14 +7,14 @@
 *
 */
 
-/* 
+/*
 Controle visando evitar inclusões múltiplas.
 */
 
 #ifndef MOD_DEF_PEVENTO
 #define MOD_DEF_PEVENTO
 
-/* 
+/*
 Controle visando identificar o servidor.
 */
 
@@ -24,7 +24,7 @@ Controle visando identificar o servidor.
 #define EXT_MOD_DEF_PEVENTO extern
 #endif
 
-/* 
+/*
 Inclusão de módulo de definição.
 */
 
@@ -49,6 +49,7 @@ typedef enum {
 Declaração de protótipo de função.
 */
 
+EXT_MOD_DEF_PEVENTO FILE* getArquivoPEvento(void);
 EXT_MOD_DEF_PEVENTO void getListaPEvento(ListaPEvento *pinicio);
 EXT_MOD_DEF_PEVENTO void setListaPEvento(ListaPEvento **epinicio, char *arquivo);
 

@@ -96,24 +96,21 @@ int main() {
 
 void visualizarCurriculoDocente(){
 
-
-
-
 }
 
 int exibirOpcoes(){
 
    printf("======================================================================");
-   printf("\n                    SISTEMA CURUPIRA v0.0.1                           ");
+   printf("\n                    SISTEMA SUCUPIRA v0.0.1                           ");
 
    printf("\n");
    printf("Digite uma opcao:");
    printf("\n");
    printf("1. Visualizar Docentes \n");
-   printf("2. Visuazliar Discentes \n");
+   printf("2. Visualizar Discentes \n");
    printf("3. Visualizar Periodicos \n");
    printf("4. Visualizar Eventos \n");
-   printf("5. Visualizar Curriculo de Docente \n");
+   printf("5. Visualizar Publicacoes e Eventos de Docente \n");
    printf("6. Sair do sistema\n\n");
    printf("\nDigite uma opcao e pressione enter: ");
    int opcao;

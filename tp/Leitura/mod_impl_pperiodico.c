@@ -17,6 +17,8 @@ Inclusão de biblioteca do compilador.
 #include <string.h>
 #include <assert.h>
 
+#include <dirent.h>
+
 /*
 Declaração visando identificar o módulo como servidor.
 */
@@ -72,12 +74,56 @@ void getListaPPeriodico(ListaPPeriodico *pinicio)
 
 }
 
+FILE* getArquivoPPeriodicos(void){
+      DIR* dir;
+      struct dirent *ent;
+      char* arq;
+
+    if ((dir = opendir ("./Arquivos")) != NULL)
+    {
+
+       while ((ent = readdir (dir)) != NULL)
+       {
+
+           if (strcmp (ent->d_name, ".")==0)
+                continue;
+           if (strcmp (ent->d_name, "..")==0)
+                continue;
+
+            if (strcmp (ent->d_name, "publicacao_periodico.txt")==0)
+            {
+                 printf("ent: %s\n", ent->d_name);
+                 arq = ent->d_name;
+            }
+
+
+       }
+    }
+    if(arq!=NULL){
+      char abs[100];
+      strcpy(abs, "Arquivos/");
+      strcat(abs, arq);
+      printf("abs %s ", abs);
+      closedir(dir);
+      FILE* fp = fopen(abs, "r");
+
+      return fp;
+    }else
+       return NULL;
+}
+
 void setListaPPeriodico(ListaPPeriodico **epinicio, char *arquivo){
     FILE *pFile;
     //TipoPessoa *integrante; /* ponteiro de integrante */
     TipoPPeriodico *pperiodico; /* ponteiro de projeto */
-    pFile = fopen(arquivo, "r"); /* abre arquivo */
+    //pFile = fopen(arquivo, "r"); /* abre arquivo */
+    pFile = getArquivoPPeriodicos();
 
+    if(pFile==NULL) {
+      printf("diretorio nulo.\n");
+      exit(0);
+
+    }
     char* linha=NULL;
     size_t len = 0;
     ssize_t read;

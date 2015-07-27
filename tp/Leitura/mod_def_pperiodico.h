@@ -53,6 +53,8 @@ typedef enum {
 Declaração de protótipo de função.
 */
 
+EXT_MOD_DEF_PPERIODICO FILE* getArquivoPPeriodicos(void);
+
 EXT_MOD_DEF_PPERIODICO void getListaPPeriodico(ListaPPeriodico *pinicio);
 EXT_MOD_DEF_PPERIODICO void setListaPPeriodico(ListaPPeriodico **epinicio, char *arquivo);
 
