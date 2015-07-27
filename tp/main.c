@@ -15,6 +15,8 @@
 #include "Estrutura/mod_def_pessoa.h"
 #include "Leitura/mod_def_projeto.h"
 
+#include <dirent.h>
+
 #define SAIR_DO_SISTEMA 6
 
 struct ListaDocente* pInicioDocentes;
@@ -79,6 +81,7 @@ int main() {
           case 4:
             break;
           case 5:
+            visualizarCurriculoDocente();
             break;
           case 6:
             exit(0);
@@ -91,6 +94,12 @@ int main() {
    return 0;
 }
 
+void visualizarCurriculoDocente(){
+
+
+
+
+}
 
 int exibirOpcoes(){
 

@@ -49,8 +49,25 @@ void getListaPPeriodico(ListaPPeriodico *pinicio)
      if(pinicio==NULL) return;
 
     ListaPPeriodico* p = pinicio;
-    printf("---> %s", p->pperiodico->nome_completo);
-    printf("---> %s", p->pperiodico->integrantes->proximoIntegrante->integrante->nome);
+    printf("Nome Completo: %s", p->pperiodico->nome_completo);
+    printf("Nome Citacao: %s", p->pperiodico->nome_citacao);
+    printf("Natureza: %s", p->pperiodico->natureza);
+    printf("Titulo do Artigo: %s", p->pperiodico->titulo_artigo);
+    printf("Ano: %s", p->pperiodico->ano);
+    printf("Idioma: %s", p->pperiodico->idioma);
+    printf("Titulo do Periodico: %s", p->pperiodico->titulo_periodico);
+    printf("Volume: %s", p->pperiodico->volume);
+    printf("Serie: %s", p->pperiodico->serie);
+    printf("Pagina Inicial: %s", p->pperiodico->paginaInicial);
+    printf("Pagina Final: %s", p->pperiodico->paginaFinal);
+    printf("Integrantes:\n");
+    ListaIntegrante* l = p->pperiodico->integrantes;
+    printf("Nome: %s", l->integrante->nome);
+    l=l->proximoIntegrante;
+    printf("Nome: %s", l->integrante->nome);
+
+    l=l->proximoIntegrante;
+    if(l==NULL) printf("AQUI ACABA");
 
 
 }
@@ -170,7 +187,7 @@ void setListaPPeriodico(ListaPPeriodico **epinicio, char *arquivo){
                  integrantePtr->ordemAuditoria = (char*)malloc(strlen(linha)+1);
                  strcpy(integrantePtr->ordemAuditoria, linha);
                  printf("ORDEM AUDITORIA: %s", integrantePtr->ordemAuditoria);
-
+                 integrantePtr->proximoIntegrante=NULL;
                  if(listaIntegrantes == NULL){
                     listaIntegrantes = integrantePtr;
                  } else{
