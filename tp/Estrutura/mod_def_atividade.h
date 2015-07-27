@@ -69,18 +69,18 @@ typedef struct TipoPEvento {
 /* Para periodico */
 
 typedef struct TipoPPeriodico {
-   struct TipoString *nome_completo;
-   struct TipoString *nome_citacao;
-   struct TipoString *natureza;
-   struct TipoString *titulo_artigo;
-   struct TipoString *ano;
-   struct TipoString *idioma;
-   struct TipoString *titulo_periodico;
-   struct TipoString *volume;
-   struct TipoString *serie;
-   struct TipoString *paginaInicial;
-   struct TipoString *paginaFinal;
-   struct TipoString *autores;
+   char *nome_completo;
+   char *nome_citacao;
+   char *natureza;
+   char *titulo_artigo;
+   char *ano;
+   char *idioma;
+   char *titulo_periodico;
+   char *volume;
+   char *serie;
+   char *paginaInicial;
+   char *paginaFinal;
+   char *autores;
 
    struct ListaIntegrante *integrantes;
 } TipoPPeriodico;

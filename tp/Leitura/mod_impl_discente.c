@@ -11,7 +11,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 /*
 Declaração visando identificar o módulo como servidor.
 */
@@ -40,13 +39,10 @@ char* getNomeDiscente(char *linha);
 * @return sem retorno.
 */
 void getListaDiscente(ListaDiscente *inicioPtr) {
-
-    if(inicioPtr==NULL) return;
-
 	ListaDiscente* pd1=inicioPtr;
 
     while(pd1!=NULL){
-        printf("%s\n", pd1->discente->nome);
+        printf("%s %s\n", pd1->discente->nome, pd1->discente->categoria);
         pd1=pd1->proximoDiscente;
     }
 }
@@ -86,7 +82,7 @@ void setListaDiscente(ListaDiscente **inicioPtr, char *arquivo) {
 
         ListaDiscente* ld = (ListaDiscente*)malloc(sizeof(ListaDiscente));
         ld->discente = tp;
-        ld->proximoDiscente = NULL;
+        ld->proximoDiscente=NULL;
 
         if(*inicioPtr==NULL)
             *inicioPtr = ld;
@@ -96,7 +92,6 @@ void setListaDiscente(ListaDiscente **inicioPtr, char *arquivo) {
                pt=pt->proximoDiscente;
             }
             pt->proximoDiscente=ld;
-
         }
     }
     fclose (pArquivo);

@@ -1,5 +1,5 @@
-/**	
-*	@file mod_impl_docente.c 
+/**
+*	@file mod_impl_docente.c
 *	@brief Módulo que faz a leitura dos docentes.
 * 	@author José Siqueira.
 *	@since 01/03/15.
@@ -7,7 +7,7 @@
 *
 */
 
-/* 
+/*
 Inclusão de biblioteca do compilador.
 */
 
@@ -21,13 +21,13 @@ Declaração visando identificar o módulo como servidor.
 
 #define MOD_IMPL_DOCENTE
 
-/* 
+/*
 Inclusão de módulo de definição.
 */
 
 #include "mod_def_docente.h"
 
-/* 
+/*
 Termina processamento de módulo de implementação.
 */
 
@@ -45,6 +45,13 @@ Definição de corpo de função.
 * @return sem retorno.
 */
 void getListaDocente(ListaDocente *pinicio) {
+    ListaDocente* ptr;
+    ptr = pinicio;
+
+    while(ptr!=NULL) {
+       printf("%s", ptr->docente->nome);
+       ptr=ptr->proximoDocente;
+     }
 
 }
 
@@ -54,85 +61,33 @@ void getListaDocente(ListaDocente *pinicio) {
 * @param *arquivo um array de caracteres que contem o nome do arquivo.
 * @return sem retorno.
 */
-void setListaDocente(ListaDiscente **epinicio, char *arquivo) {
-   
-   /*
-   FILE *pArquivo;
-   
-   char separador;
-   char buffer[78];
-   char nome[30];
-   char c; //SERA QUE EH ISSO AQUI
+void setListaDocente(ListaDocente **epinicio, char *arquivo) {
 
-	int anoMatricula;
-	int matricula;
-	
-	ListaDocente *pd1;
-	ListaDocente *pd2;
-	
-    TipoPessoa *docente;
 
+    FILE *pArquivo;
     pArquivo = fopen(arquivo, "r");
 
-    //if (!pArquivo)
-    //   printf("'%s' not exist\n", arquivo);
-    
-	//c = fgetc(pArquivo); SEM ISSO AQUI FUNCIONA MELHOR
-	
-	if(ferror(pArquivo))
-		printf("Arquivo '%s' vazio\n", arquivo);
-    else {
-		
-		/* descarta informacoes de cabecalho do arquivo de entrada 
-       *  ate encontrar a palavra Matricula */
-       
-       /*
-		while (strcmp("Matricula", nome) != 0) {
-				
-			fgets(buffer, sizeof(buffer), pArquivo);
-			sscanf(buffer,"%s", &nome);
-			
-		}
-		
-		/* filtra informacoes e constroi lista de discentes */
-		
-		/*
-		while ((fgets(buffer, sizeof(buffer), pArquivo)) != NULL ) {
-			
-			if (sscanf(buffer,"%d%c%d %[^\n]s", &anoMatricula, &separador, &matricula, nome) == 4) {
-				
-				discente = malloc(sizeof(TipoPessoa));
-				 
-				discente->anoMatricula = anoMatricula;
-				discente->matricula = matricula;
-				
-            discente->nome = calloc(strlen(nome), sizeof(char));
-            strcpy(discente->nome, nome);
-				
-				pd1 = malloc(sizeof(ListaDiscente));
-				
-				pd1->discente = discente;
-				pd1->proximoDiscente = NULL;
-				
-				if (*epinicio == NULL)
-					*epinicio = pd1;
-				
-				else
-					pd2->proximoDiscente = pd1;
-					
-				pd2 = pd1;
-				
-				while (getc(pArquivo) != 10);
-		
-			}
-			
-		}
-		
-		fclose (pArquivo);
-		
-	}
-	
-	
-   */
-}
+    char* linha=NULL;
+    size_t len = 0;
+    ssize_t read;
 
+    int contadorLinha=0;
+    while ((read = getline(&linha, &len, pArquivo)) != -1){
+
+        ListaDocente* listaPtr = (ListaDocente*)malloc(sizeof(ListaDocente));
+        listaPtr->docente = (TipoPessoa*)malloc(sizeof(TipoPessoa));
+        listaPtr->docente->nome = (char*)malloc(strlen(linha)+1);
+        strcpy(listaPtr->docente->nome, linha);
+        listaPtr->docente->categoria = (char*)malloc(strlen("Docente")+1);
+        listaPtr->proximoDocente = NULL;
+
+        if(*epinicio==NULL){
+           *epinicio=listaPtr;
+        }else{
+           ListaDocente* ld = *epinicio;
+           while(ld->proximoDocente!=NULL) ld=ld->proximoDocente;
+           ld->proximoDocente=listaPtr;
+        }
+    }
+   fclose(pArquivo);
+}

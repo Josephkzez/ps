@@ -38,7 +38,7 @@ Termina processamento de módulo de implementação.
 /*
 Definição de corpo de função.
 */
-
+#include<unistd.h>
 /**
 * Uma função que percorre a lista de periodicos.
 * @param *pinicio um ponteiro para o inicio da lista de periodicos.
@@ -46,18 +46,19 @@ Definição de corpo de função.
 */
 void getListaPPeriodico(ListaPPeriodico *pinicio)
 {
+     if(pinicio==NULL) return;
+
+    ListaPPeriodico* p = pinicio;
+    printf("---> %s", p->pperiodico->nome_completo);
+    printf("---> %s", p->pperiodico->integrantes->proximoIntegrante->integrante->nome);
 
 
 }
 
 void setListaPPeriodico(ListaPPeriodico **epinicio, char *arquivo){
     FILE *pFile;
-
-
     //TipoPessoa *integrante; /* ponteiro de integrante */
     TipoPPeriodico *pperiodico; /* ponteiro de projeto */
-
-
     pFile = fopen(arquivo, "r"); /* abre arquivo */
 
     char* linha=NULL;
@@ -67,9 +68,15 @@ void setListaPPeriodico(ListaPPeriodico **epinicio, char *arquivo){
     int fAutores=0; //flag que indica o inicio da leitura dos autores
     int campo=0; //flag que assiste a posicao do campo
     int stateS=0; //flag que assiste o campo dos integrantes
+    int autoresImpresso=0;
+    ListaIntegrante* listaIntegrantes=NULL;
+    ListaIntegrante* integrantePtr=NULL;
 
+
+    pperiodico = (TipoPPeriodico*) malloc(sizeof(TipoPPeriodico));
+    ListaPPeriodico* periodicoPtr = (ListaPPeriodico*) malloc(sizeof(ListaPPeriodico));
     while ((read = getline(&linha, &len, pFile)) != -1){  // le o arquivo linha a linha
-		pperiodico = (TipoPPeriodico*) malloc(sizeof(TipoPPeriodico));
+
 		if(linha[0]=='A' && linha[1]=='U'){
 			fAutores = 1;
 			continue;
@@ -87,59 +94,107 @@ void setListaPPeriodico(ListaPPeriodico **epinicio, char *arquivo){
 				//printf("token %d: %s ", campo++, token);
 				valor = token;
 			}
-			//printf("prop: %s valor: %s", propriedade, valor);
-
 			if(strcmp(propriedade, "NOME COMPLETO ")==0){
-				pperiodico->nome_completo = valor;
-				printf("NOME COMPLETO = %s\n", pperiodico->nome_completo->valor);
+				pperiodico->nome_completo = (char*) malloc(strlen(valor)+1);
+                strcpy(pperiodico->nome_completo, valor);
+				printf("NOME COMPLETO = %s\n", pperiodico->nome_completo);
 			} else if (strcmp(propriedade, "NOME-PARA-CITACAO ")==0){
-				pperiodico->nome_citacao=valor;
-				printf("nome citacao: %s", pperiodico->nome_citacao->valor);
+				pperiodico->nome_citacao=(char*) malloc(strlen(valor)+1);
+                strcpy(pperiodico->nome_citacao, valor);
+				printf("nome citacao: %s", pperiodico->nome_citacao);
 			} else if (strcmp(propriedade, "NATUREZA ")==0){
-				pperiodico->natureza= (char*)valor;
-				printf("natureza: %s", pperiodico->natureza->valor);
+				pperiodico->natureza= (char*) malloc(strlen(valor)+1);
+                strcpy(pperiodico->natureza, valor);
+				printf("natureza: %s", pperiodico->natureza);
 			} else if (strcmp(propriedade, "TITULO do ARTIGO ")==0){
-				pperiodico->titulo_artigo = valor;
-				printf("titulo artigo: %s", pperiodico->titulo_artigo->valor);
+				pperiodico->titulo_artigo = (char*) malloc(strlen(valor)+1);
+                strcpy(pperiodico->titulo_artigo, valor);
+				printf("titulo artigo: %s", pperiodico->titulo_artigo);
 			} else if (strcmp(propriedade, "ANO ")==0){
-				pperiodico->ano = valor;
-				printf("ano: %s", pperiodico->ano->valor);
+				pperiodico->ano = (char*) malloc(strlen(valor)+1);
+                strcpy(pperiodico->ano, valor);
+				printf("ano: %s", pperiodico->ano);
 			} else if (strcmp(propriedade, "IDIOMA ")==0){
-				pperiodico->idioma = valor;
-				printf("idioma: %s", pperiodico->idioma->valor);
+				pperiodico->idioma = (char*) malloc(strlen(valor)+1);
+                strcpy(pperiodico->idioma, valor);
+				printf("idioma: %s", pperiodico->idioma);
 			} else if (strcmp(propriedade, "TITULO do PERIODICO ")==0){
-				pperiodico->titulo_periodico = valor;
-				printf("titulo do periodico: %s", pperiodico->titulo_periodico->valor);
+				pperiodico->titulo_periodico = (char*) malloc(strlen(valor)+1);
+                strcpy(pperiodico->titulo_periodico, valor);
+				printf("titulo do periodico: %s", pperiodico->titulo_periodico);
 			} else if (strcmp(propriedade, "VOLUME ")==0 && valor != NULL){
-				pperiodico->volume = valor;
-				printf("volume: %s", pperiodico->volume->valor);
+				pperiodico->volume = (char*) malloc(strlen(valor)+1);
+                strcpy(pperiodico->volume, valor);
+				printf("volume: %s", pperiodico->volume);
 			} else if (strcmp(propriedade, "SERIE ")==0 && valor != NULL){
-				pperiodico->serie = (char*) valor;
-				printf("serie: %s", pperiodico->serie->valor);
+				pperiodico->serie = (char*) malloc(strlen(valor)+1);
+                strcpy(pperiodico->serie, valor);
+				printf("serie: %s", pperiodico->serie);
 			} else if (strcmp(propriedade, "PAGINA INICIAL ")==0 && valor != NULL){
-				pperiodico->paginaInicial = (char*) valor;
-				printf("pagina inicial: %s", pperiodico->paginaInicial->valor);
+				pperiodico->paginaInicial = (char*) malloc(strlen(valor)+1);
+                strcpy(pperiodico->paginaInicial, valor);
+				printf("pagina inicial: %s", pperiodico->paginaInicial);
 			} else if (strcmp(propriedade, "PAGINA FINAL ")==0 && valor != NULL){
-				pperiodico->paginaFinal = (char*) valor;
-				printf("pagina final: %s", pperiodico->paginaFinal->valor);
+				pperiodico->paginaFinal = (char*) malloc(strlen(valor)+1);
+                strcpy(pperiodico->paginaFinal, valor);
+				printf("pagina final: %s", pperiodico->paginaFinal);
 			}
 			campo=0;
 		}else{ // Analisar integrantes
 
-			if(stateS==0){
-				printf("nome do integrante: %s", linha);
-			}else if (stateS==1){
-				printf("nome para citacao: %s", linha);
-			}  else if (stateS==2){
-				printf("ordem de auditoria: %s", linha);
-				stateS=0;
-			}
-			stateS++;
+            if(!autoresImpresso){
+               printf("=========AUTORES=========\n");
+               autoresImpresso=1;
+               }
+              if(stateS==0){
+
+                 stateS++;
+
+                 integrantePtr = (ListaIntegrante*)malloc(sizeof(ListaIntegrante));
+                 integrantePtr->integrante = (TipoPessoa*) malloc(sizeof(TipoPessoa));
+                 integrantePtr->integrante->nome = (char*)malloc(strlen(linha)+1);
+                 strcpy(integrantePtr->integrante->nome, linha);
+                 printf("NOME INTEGRANTE> %s", integrantePtr->integrante->nome);
+
+              }else if (stateS==1){
+
+                 stateS++;
+
+                 integrantePtr->integrante->nomesCitacao = (char*)malloc(strlen(linha)+1);
+                 strcpy(integrantePtr->integrante->nomesCitacao, linha);
+                 printf("NOME CITACAO>%s", integrantePtr->integrante->nomesCitacao);
+
+              }else if (stateS==2){
+
+                 stateS=0;
+                 integrantePtr->ordemAuditoria = (char*)malloc(strlen(linha)+1);
+                 strcpy(integrantePtr->ordemAuditoria, linha);
+                 printf("ORDEM AUDITORIA: %s", integrantePtr->ordemAuditoria);
+
+                 if(listaIntegrantes == NULL){
+                    listaIntegrantes = integrantePtr;
+                 } else{
+                    listaIntegrantes->proximoIntegrante = integrantePtr;
+                    pperiodico->integrantes = listaIntegrantes;
+
+                    periodicoPtr->pperiodico = pperiodico;
+                    periodicoPtr->proximoPPeriodico = NULL;
+
+                    if(*epinicio==NULL)
+                       *epinicio = periodicoPtr;
+
+                 }
+
+              }
+
 		}
+
 			printf("\n");
 	}
     printf("\n");
     fclose(pFile);
+
+
 }
 
 /*

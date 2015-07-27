@@ -17,6 +17,7 @@
 
 #define SAIR_DO_SISTEMA 6
 
+struct ListaDocente* pInicioDocentes;
 struct ListaDiscente* pInicioDiscentesMestrado;
 struct ListaDiscente* pInicioDiscentesDoutorado;
 struct ListaProjeto *pInicioProjetos;
@@ -30,6 +31,7 @@ int main() {
    char projetos[] = "Arquivos/projetos.txt";
    char periodicos[] = "Arquivos/publicacao_periodico.txt";
    char eventos[] = "Arquivos/publicacao_eventos.txt";
+   char docentes[] = "Arquivos/docentes.txt";
 
 
    //struct ListaDocente *pInicioDocentes;
@@ -39,45 +41,56 @@ int main() {
    pInicioDiscentesMestrado = NULL;
    pInicioDiscentesDoutorado = NULL;
    pInicioProjetos=NULL;
-   //pInicioDocentes = NULL;
+   pInicioDocentes = NULL;
    pInicioPPeriodicos = NULL;
 
    setListaDiscente(&pInicioDiscentesMestrado, discentesMestrado);
    setListaDiscente(&pInicioDiscentesDoutorado, discentesDoutorado);
 
 
-   //setListaProjeto(&pInicioProjetos, projetos);
-   //setListaPPeriodico(&pInicioPPeriodicos, periodicos);
-   setListaPEvento(&pInicioPEventos, eventos);
+   setListaDocente(&pInicioDocentes, docentes);
+   setListaPPeriodico(&pInicioPPeriodicos, periodicos);
+
+   //setListaPEvento(&pInicioPEventos, eventos);
 
 
    //getListaProjeto(pInicioProjetos);
    //getListaProjeto(&pInicioProjetos); // Imprime lista de discentes do PPGI
    //getListaPPeriodico(pInicioPPeriodicos);
+
    int opcaoEscolhida=exibirOpcoes();
-   printf("opcao>%d\n", opcaoEscolhida);
+
 
 
    while(opcaoEscolhida!=SAIR_DO_SISTEMA){
        switch(opcaoEscolhida){
           case 1:
-             break;
+            getListaDocente(pInicioDocentes);
+            break;
           case 2:
-             break;
+            printf("================== MESTRADO ========================");
+            getListaDiscente(pInicioDiscentesMestrado);
+            printf("================== DOUTORADO ========================");
+            getListaDiscente(pInicioDiscentesDoutorado);
+            break;
+          case 3:
+            getListaPPeriodico(pInicioPPeriodicos);
+            break;
+          case 4:
+            break;
+          case 5:
+            break;
           case 6:
             exit(0);
           default:
              break;
-
-
        }
+       opcaoEscolhida=exibirOpcoes();
    }
 
-
-
    return 0;
-
 }
+
 
 int exibirOpcoes(){
 
@@ -93,10 +106,9 @@ int exibirOpcoes(){
    printf("4. Visualizar Eventos \n");
    printf("5. Visualizar Curriculo de Docente \n");
    printf("6. Sair do sistema\n\n");
-
+   printf("\nDigite uma opcao e pressione enter: ");
    int opcao;
    scanf("%d", &opcao);
 
    return opcao;
-
 }

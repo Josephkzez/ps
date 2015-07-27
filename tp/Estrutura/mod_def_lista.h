@@ -1,7 +1,6 @@
 /**
 *	@file mod_def_lista.h
 * 	@brief Arquivo cabeçalho para a estrutura de listas.
-*	@author Danilo Alves.
 * 	@author José Siqueira.
 *	@since 01/03/15.
 *	@version 1.0.
